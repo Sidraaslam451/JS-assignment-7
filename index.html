@@ -1,36 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Assignment Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()">
+      🌙 Dark Mode
+    </button>
 
-    <!-- QUESTION NO : 01 -->
-    <p>DECLARE AND INITIALIZE AN EMPTY MULTIDIMENSIONAL (ARRAY OF ARRAYS)</p>
+    <!-- Header -->
+    <header>
+      <h1>JavaScript Assignment Dashboard</h1>
+      <p>Interactive JavaScript Array & Loop Assignments</p>
+    </header>
 
-    <!-- QUESTION NO : 02 -->
-    <p>DECLARE AND INITIALIZE A MULTIDIMENSIONAL ARRAY REPRESENTING THE MATRIX</p>
+    <!-- Progress Section -->
+    <section class="progress-card">
+      <h3>
+        Completed:
+        <span id="counter">0</span>/7
+      </h3>
 
-    <!-- QUESTION NO : 03 -->
-    <p>PRINTING NUMERIC COUNTING FROM 1 TO 10</p>
+      <div class="progress-bar">
+        <div id="fill"></div>
+      </div>
+    </section>
 
-    <!-- QUESTION NO : 04 -->
-    <p>MULTIPLICATION TABLE OF ANY NUMBER ( USER INPUT FOR NUMBER AND LENGHT )</p>
+    <!-- Cards Container -->
+    <div class="container">
+      <!-- Question 1 -->
+      <div class="card">
+        <h2>Question 1</h2>
+        <p>Empty Multidimensional Array</p>
+        <button onclick="showQ1()">Run</button>
+      </div>
 
-    <!-- QUESTION NO : 05 -->
-    <p>WRITE A PROGRAM TO PRINT ITEMS OF THE ARRAY USING A FOR LOOP</p> 
+      <!-- Question 2 -->
+      <div class="card">
+        <h2>Question 2</h2>
+        <p>Matrix Representation</p>
+        <button onclick="showQ2()">Run</button>
+      </div>
 
+      <!-- Question 3 -->
+      <div class="card">
+        <h2>Question 3</h2>
+        <p>Counting 1 To 10</p>
+        <button onclick="showQ3()">Run</button>
+      </div>
 
-    <!-- QUESTION NO : 09 -->
-    <p>WRITE A PROGRAM TO IDENTIFY THE SMALLEST NUMBER IN THE GIVEN ARRAY A = [ 24, 53, 78, 91, 12]</p>
+      <!-- Question 4 -->
+      <div class="card">
+        <h2>Question 4</h2>
+        <p>Multiplication Table Generator</p>
+        <button onclick="openModal()">Generate</button>
+      </div>
 
-    <!-- QUESTION NO : 10 -->
-    <p>WRITE A PROGRAM TO PRINT MULTIPLE OF 5 RANGING FROM 1 TO 100</p>
+      <!-- Question 5 -->
+      <div class="card">
+        <h2>Question 5</h2>
+        <p>Fruits Array Using Loop</p>
+        <button onclick="showQ5()">Run</button>
+      </div>
 
-</body>
+      <!-- Question 9 -->
+      <div class="card">
+        <h2>Question 9</h2>
+        <p>Find Smallest Number</p>
+        <button onclick="showQ9()">Run</button>
+      </div>
 
+      <!-- Question 10 -->
+      <div class="card">
+        <h2>Question 10</h2>
+        <p>Multiples Of 5</p>
+        <button onclick="showQ10()">Run</button>
+      </div>
+    </div>
 
-<script src="index.js"></script>
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button onclick="copyResult()">📋 Copy Result</button>
+
+      <button onclick="clearResult()">🗑 Clear Result</button>
+    </div>
+
+    <!-- Result Section -->
+    <section class="result-section">
+      <h2>Result</h2>
+
+      <div id="result" class="result">
+        Click any question button to see the output here...
+      </div>
+    </section>
+
+    <!-- Multiplication Table Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()"> &times; </span>
+
+        <h2>Generate Multiplication Table</h2>
+
+        <input type="number" id="number" placeholder="Enter Number" />
+
+        <input type="number" id="length" placeholder="Enter Length" />
+
+        <button onclick="generateTable()">Generate Table</button>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast"></div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Built with HTML, CSS & JavaScript 🚀</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
