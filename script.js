@@ -77,23 +77,17 @@ function updateProgress() {
 // =========================
 
 function showResult(content) {
-  result.innerHTML = "";
+  const now = new Date().toLocaleString();
 
-  let index = 0;
-
-  const text = content.replace(/<[^>]*>/g, "");
-
-  const typing = setInterval(() => {
-    result.innerHTML += text[index];
-
-    index++;
-
-    if (index >= text.length) {
-      clearInterval(typing);
-    }
-  }, 15);
+  result.innerHTML = `
+    <div class="output-box">
+      <h3>📋 Assignment Report</h3>
+      <p><strong>Generated:</strong> ${now}</p>
+      <hr>
+      <pre>${content}</pre>
+    </div>
+  `;
 }
-
 // =========================
 // COPY RESULT
 // =========================
@@ -133,17 +127,24 @@ function closeModal() {
 function showQ1() {
   let emptyArray = [[], [], []];
 
-  showResult(
-    `Empty Multidimensional Array:
+  let output = `
+QUESTION:
+Declare and initialize an empty multidimensional array.
 
-${JSON.stringify(emptyArray)}`,
-  );
+LOGIC:
+Create an array containing three empty arrays.
+
+OUTPUT:
+
+${JSON.stringify(emptyArray)}
+`;
+
+  showResult(output);
 
   updateProgress();
 
   showToast("Question 1 Executed ✅");
 }
-
 // =========================
 // QUESTION 2
 // =========================
@@ -151,13 +152,20 @@ ${JSON.stringify(emptyArray)}`,
 function showQ2() {
   const matrix = [
     [0, 1, 2, 3],
-
     [1, 0, 1, 2],
-
     [2, 1, 0, 1],
   ];
 
-  let output = "Matrix:\n\n";
+  let output = `
+QUESTION:
+Declare and initialize a multidimensional array representing a matrix.
+
+LOGIC:
+Store rows inside nested arrays and display them using a loop.
+
+OUTPUT:
+
+`;
 
   matrix.forEach((row) => {
     output += row.join(" ") + "\n";
@@ -175,7 +183,16 @@ function showQ2() {
 // =========================
 
 function showQ3() {
-  let output = "Counting:\n\n";
+  let output = `
+QUESTION:
+Print numeric counting from 1 to 10.
+
+LOGIC:
+Use a for loop starting from 1 and ending at 10.
+
+OUTPUT:
+
+`;
 
   for (let i = 1; i <= 10; i++) {
     output += i + " ";
@@ -194,16 +211,25 @@ function showQ3() {
 
 function generateTable() {
   const number = Number(document.getElementById("number").value);
-
   const length = Number(document.getElementById("length").value);
 
   if (!number || !length) {
     showToast("Please Fill Both Inputs ⚠️");
-
     return;
   }
 
-  let output = `Table of ${number}\n\n`;
+  let output = `
+QUESTION:
+Generate multiplication table of any number.
+
+LOGIC:
+Take number and length from user and use a loop.
+
+OUTPUT:
+
+Multiplication Table of ${number}
+
+`;
 
   for (let i = 1; i <= length; i++) {
     output += `${number} x ${i} = ${number * i}\n`;
@@ -217,7 +243,6 @@ function generateTable() {
 
   showToast("Table Generated 🔥");
 }
-
 // =========================
 // QUESTION 5
 // =========================
@@ -225,7 +250,16 @@ function generateTable() {
 function showQ5() {
   let fruits = ["Apple", "Banana", "Mango", "Orange", "Strawberry"];
 
-  let output = "Fruits List:\n\n";
+  let output = `
+QUESTION:
+Print all items of an array using a for loop.
+
+LOGIC:
+Loop through each fruit and display its index and value.
+
+OUTPUT:
+
+`;
 
   for (let i = 0; i < fruits.length; i++) {
     output += `Element at index ${i} is ${fruits[i]}\n`;
@@ -236,9 +270,7 @@ function showQ5() {
   updateProgress();
 
   showToast("Question 5 Executed ✅");
-}
-
-// =========================
+} // =========================
 // QUESTION 9
 // =========================
 
@@ -253,22 +285,44 @@ function showQ9() {
     }
   }
 
-  showResult(`Smallest Number:\n\n${smallest}`);
+  let output = `
+QUESTION:
+Find the smallest number in the given array.
+
+LOGIC:
+Compare each element with the current smallest value.
+
+OUTPUT:
+
+Array: ${arr.join(", ")}
+
+Smallest Number: ${smallest}
+`;
+
+  showResult(output);
 
   updateProgress();
 
   showToast("Question 9 Executed ✅");
 }
-
 // =========================
 // QUESTION 10
 // =========================
 
 function showQ10() {
-  let output = "Multiples of 5:\n\n";
+  let output = `
+QUESTION:
+Print multiples of 5 ranging from 1 to 100.
+
+LOGIC:
+Use a loop and increase by 5 each iteration.
+
+OUTPUT:
+
+`;
 
   for (let i = 5; i <= 100; i += 5) {
-    output += i + ", ";
+    output += i + " ";
   }
 
   showResult(output);
@@ -277,7 +331,6 @@ function showQ10() {
 
   showToast("Question 10 Executed ✅");
 }
-
 // =========================
 // CLOSE MODAL ON OUTSIDE CLICK
 // =========================
